@@ -1,0 +1,6 @@
+@mixin radius_common($radius: 10px) {
+    border-radius: $radius;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
