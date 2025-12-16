@@ -1,11 +1,9 @@
-import Banner from './components/Banner/Banner';
-import Header from './components/Header/header';
+import Homepage from './components/Homepage/Homepage';
 
 function App() {
     return (
         <>
-            <Header />
-            <Banner />
+            <Homepage />
         </>
     );
 }

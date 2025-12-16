@@ -1,0 +1,30 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+.container {
+    @include flex_box_custom(center, center, 0);
+
+    background-image: url(../../assets/images/banner.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    min-height: 750px;
+    overflow: hidden;
+}
+.content {
+    @include flex_box_custom(center, center, 10px);
+
+    flex-direction: column;
+    padding: 15px 0;
+}
+.title {
+    font-size: 42px;
+    font-weight: 400;
+    color: $four_color;
+    margin: 0;
+}
+.des {
+    color: $thr_color;
+    font-weight: 400;
+    margin-bottom: 34px;
+}
