@@ -1,5 +1,5 @@
-@import '@styles/variable.module.scss';
-@import '@styles/mixin.module.scss';
+@use '@styles/variable.module.scss' as *;
+@use '@styles/mixin.module.scss' as *;
 
 .container {
     position: absolute;
@@ -14,7 +14,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
-    cursor: pointer;
 }
 .containerBox {
     @include flex_box_custom(center, center, 20px);
@@ -36,7 +35,9 @@
     padding-top: 7px;
     font-size: 15px;
     line-height: 1.5;
+    text-decoration: none;
     color: $primary_color;
+    cursor: pointer;
 }
 .menu::after {
     content: '';

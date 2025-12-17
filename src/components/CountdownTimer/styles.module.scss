@@ -1,0 +1,15 @@
+@use '@styles/variable.module.scss' as *;
+@use '@styles/mixin.module.scss' as *;
+.box {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    text-align: center;
+}
+.box + .box {
+    margin-left: 10px;
+}
+.title {
+    color: $seconddary_color;
+}

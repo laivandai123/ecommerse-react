@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
     resolve: {
@@ -13,4 +12,12 @@ export default defineConfig({
             '@icons': path.resolve(__dirname, 'src/assets/icons')
         }
     }
+    // css: {
+    //     preprocessorOptions: {
+    //         scss: {
+    //             additionalData: `@use "@styles/variable.module.scss" as *;`,
+    //             additionalData: `@use "@styles/mixin.module.scss" as *;`
+    //         }
+    //     }
+    // }
 });
