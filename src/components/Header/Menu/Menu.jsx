@@ -1,10 +1,10 @@
 import styles from '../styles.module.scss';
 
-function Menu({ content, href }) {
+function Menu({ content, href, setIsOpen }) {
     const { menu } = styles;
 
     return (
-        <a href={href} className={menu}>
+        <a href={href} className={menu} onClick={() => setIsOpen(true)}>
             {content}
         </a>
     );
