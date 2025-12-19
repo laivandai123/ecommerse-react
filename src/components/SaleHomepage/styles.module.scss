@@ -1,0 +1,39 @@
+@use '@styles/variable.module.scss' as *;
+@use '@styles/mixin.module.scss' as *;
+.container {
+    @include flex_box_custom(space-between, center, 0);
+
+    margin-top: 50px;
+    margin-bottom: 200px;
+    .boxImage {
+        @include flex_box_custom(space-between, center, 0);
+        img {
+            width: 555px;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.containerItem {
+    @include flex_box_custom(center, center, 0);
+
+    padding: 15px;
+    flex-direction: column;
+    width: 308px;
+    .title {
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 46px;
+        color: $four_color;
+        text-align: center;
+    }
+    .des {
+        // width: 460px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        text-align: center;
+        color: $thr_color;
+        margin: 20px 0 40px;
+    }
+}
