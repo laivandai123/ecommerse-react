@@ -9,6 +9,7 @@ import getProduct from '@/apis/productsService';
 import PopularProduct from '../PopularProduct/PopularProduct';
 import HeadingListProducts from '../HeadingListProduct/HeadingListProducts';
 import SaleHomepage from '../SaleHomepage/SaleHomepage';
+import Footer from '../Footer/Footer';
 
 function Homepage() {
     const [listProducts, setListProducts] = useState([]);
@@ -38,6 +39,7 @@ function Homepage() {
                 <HeadingListProducts data={listProducts.slice(0, 2)} />
                 <PopularProduct data={listProducts.slice(2, 14)} />
                 <SaleHomepage />
+                <Footer />
             </div>
         </div>
     );

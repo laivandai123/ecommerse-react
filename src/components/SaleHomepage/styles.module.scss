@@ -3,8 +3,8 @@
 .container {
     @include flex_box_custom(space-between, center, 0);
 
-    margin-top: 50px;
-    margin-bottom: 200px;
+    margin-top: 100px;
+
     .boxImage {
         @include flex_box_custom(space-between, center, 0);
         img {

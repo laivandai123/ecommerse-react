@@ -1,0 +1,25 @@
+@use '@styles/variable.module.scss' as *;
+@use '@styles/mixin.module.scss' as *;
+.container {
+    @include flex_box_custom(center, center, 40px);
+    flex-direction: column;
+
+    margin-top: 80px;
+    background-color: #363636;
+    color: $white_color;
+    padding: 55px 0;
+
+    .boxNav {
+        @include flex_box_custom(center, center, 46px);
+        font-size: 15px;
+        cursor: pointer;
+        :hover {
+            opacity: 0.6;
+        }
+    }
+    .boxImage {
+        @include flex_box_custom(center, center, 20px);
+        flex-direction: column;
+        cursor: pointer;
+    }
+}
