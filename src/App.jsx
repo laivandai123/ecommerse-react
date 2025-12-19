@@ -1,10 +1,23 @@
-import Homepage from './components/Homepage/Homepage';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routers from '@/Routers/Routers';
+import { Suspense } from 'react';
 function App() {
     return (
-        <>
-            <Homepage />
-        </>
+        <BrowserRouter>
+            <Suspense fallback={<div>Loading</div>}>
+                <Routes>
+                    {routers.map((item, index) => {
+                        return (
+                            <Route
+                                path={item.path}
+                                element={<item.component />}
+                                key={index}
+                            />
+                        );
+                    })}
+                </Routes>
+            </Suspense>
+        </BrowserRouter>
     );
 }
 
