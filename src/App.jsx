@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 function App() {
     return (
         <BrowserRouter>
-            <Suspense fallback={<div>Loading</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     {routers.map((item, index) => {
                         return (

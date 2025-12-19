@@ -1,9 +1,9 @@
+import useTranslateXImage from '@/hooks/useTranslateXImage';
 import Button from '../Button/Button';
 import styles from './styles.module.scss';
-import useTranslateX from './translateX';
 function SaleHomepage() {
     const { container, containerItem, title, des, boxImage } = styles;
-    const { translateXPosition } = useTranslateX();
+    const { translateXPosition } = useTranslateXImage();
 
     return (
         <div className={container}>

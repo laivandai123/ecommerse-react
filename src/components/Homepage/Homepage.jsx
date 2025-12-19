@@ -20,8 +20,6 @@ function Homepage() {
             try {
                 const data = await getProduct();
                 setListProducts(data.contents || []);
-                console.log('data:', data);
-                console.log('data.contents:', data.contents);
             } catch (err) {
                 console.error('Lỗi khi tải sản phẩm:', err);
             }
