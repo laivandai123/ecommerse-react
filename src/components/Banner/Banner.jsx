@@ -10,7 +10,7 @@ function Banner() {
                     Make yours celebrations even more special this years with
                     beautiful.
                 </p>
-                <Button content={'Go to shop'} />
+                <Button content={'Go to shop'} style={{ width: '176px' }} />
             </div>
         </div>
     );

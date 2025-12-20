@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { SideBarContext } from '@/contexts/Sidebarprovider';
 import classNames from 'classnames';
 import { GrClose } from 'react-icons/gr';
+import Login from '../ContextSidebar/Login/Login';
 function SideBar() {
     const { container, overlay, sideBar, slideSidebar, boxIcon } = styles;
     const { isOpen, setIsOpen } = useContext(SideBarContext);
@@ -32,6 +33,7 @@ function SideBar() {
                         <GrClose />
                     </div>
                 )}
+                <Login />
             </div>
         </div>
     );
