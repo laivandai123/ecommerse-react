@@ -1,0 +1,14 @@
+@use '@styles/variable.module.scss' as *;
+@use '@styles/mixin.module.scss' as *;
+.container {
+    @include flex_box_custom(center, center, 10px);
+    flex-direction: column;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    div {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: $four_color;
+    }
+}

@@ -4,19 +4,36 @@ import { SideBarContext } from '@/contexts/Sidebarprovider';
 import classNames from 'classnames';
 import { GrClose } from 'react-icons/gr';
 import Login from '../ContextSidebar/Login/Login';
+import Compare from '../ContextSidebar/Compare/Compare';
 function SideBar() {
     const { container, overlay, sideBar, slideSidebar, boxIcon } = styles;
-    const { isOpen, setIsOpen } = useContext(SideBarContext);
+    const { isOpen, setIsOpen, type } = useContext(SideBarContext);
+    console.log(type);
+    const handleRenderContent = () => {
+        switch (type) {
+            case 'login':
+                return <Login />;
+            case 'compare':
+                return <Compare />;
+            case 'wishlist':
+                return 'wishlist';
+            case 'cart':
+                return 'cart';
+            default:
+                return <Login />;
+        }
+    };
 
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
     return (
         <div className={container}>
             <div
                 className={classNames({
                     [overlay]: isOpen
                 })}
-                onClick={() => {
-                    setIsOpen(!isOpen);
-                }}
+                onClick={() => handleToggle()}
             />
             <div
                 className={classNames(sideBar, {
@@ -24,16 +41,11 @@ function SideBar() {
                 })}
             >
                 {isOpen && (
-                    <div
-                        className={boxIcon}
-                        onClick={() => {
-                            setIsOpen(!isOpen);
-                        }}
-                    >
+                    <div className={boxIcon} onClick={() => handleToggle()}>
                         <GrClose />
                     </div>
                 )}
-                <Login />
+                {handleRenderContent()}
             </div>
         </div>
     );
