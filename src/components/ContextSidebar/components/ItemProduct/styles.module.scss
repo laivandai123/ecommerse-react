@@ -12,16 +12,22 @@
         cursor: pointer;
     }
     .boxItem {
-        @include flex_box_custom(center, left, 12px);
+        @include flex_box_custom(center, left, 0);
         flex-direction: column;
         .title {
             font-size: 16px;
             color: $primary_color;
             cursor: pointer;
         }
+        .size {
+            font-size: 14px;
+            color: #909090;
+            margin: 6px 0 10px 0;
+        }
         .price {
             font-size: 14px;
             color: $four_color;
+            margin-bottom: 6px;
         }
     }
     .boxClose {

@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import { GrClose } from 'react-icons/gr';
 import Login from '../ContextSidebar/Login/Login';
 import Compare from '../ContextSidebar/Compare/Compare';
+import Wistlist from '../ContextSidebar/WishList/Wistlist';
+import Cart from '../ContextSidebar/Cart/Cart';
 function SideBar() {
     const { container, overlay, sideBar, slideSidebar, boxIcon } = styles;
     const { isOpen, setIsOpen, type } = useContext(SideBarContext);
@@ -16,9 +18,9 @@ function SideBar() {
             case 'compare':
                 return <Compare />;
             case 'wishlist':
-                return 'wishlist';
+                return <Wistlist />;
             case 'cart':
-                return 'cart';
+                return <Cart />;
             default:
                 return <Login />;
         }

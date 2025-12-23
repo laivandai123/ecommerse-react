@@ -1,7 +1,7 @@
 import InputCommon from '@components/InputCommon/InputCommon';
 import styles from './styles.module.scss';
 function Login() {
-    const { container, title, boxRememberMe, lostPW, boxBtn } = styles;
+    const { container, title, boxRememberMe, lostPW, boxFullBtn } = styles;
     return (
         <div className={container}>
             <div className={title}>SIGN IN</div>
@@ -12,7 +12,7 @@ function Login() {
                 <span>Remember me</span>
             </div>
             {/* <Button content={'LOGIN'} className={boxBtn} /> */}
-            <button className={boxBtn}>LOGIN</button>
+            <button className={boxFullBtn}>LOGIN</button>
             <div className={lostPW}>Lost your password?</div>
         </div>
     );
