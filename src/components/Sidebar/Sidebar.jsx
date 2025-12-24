@@ -10,7 +10,6 @@ import Cart from '../ContextSidebar/Cart/Cart';
 function SideBar() {
     const { container, overlay, sideBar, slideSidebar, boxIcon } = styles;
     const { isOpen, setIsOpen, type } = useContext(SideBarContext);
-    console.log(type);
     const handleRenderContent = () => {
         switch (type) {
             case 'login':

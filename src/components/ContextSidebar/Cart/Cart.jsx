@@ -3,8 +3,9 @@ import { PiShoppingCartThin } from 'react-icons/pi';
 
 import styles from './styles.module.scss';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
+import Button from '@components/Button/Button';
 function Cart() {
-    const { container, boxBtn, boxFullBtn, boxItemBtn, total } = styles;
+    const { container, boxBtn, total } = styles;
     return (
         <div className={container}>
             <div>
@@ -21,8 +22,8 @@ function Cart() {
                     <p>SUBTOTAL:</p>
                     <p>$119.99</p>
                 </div>
-                <button className={boxFullBtn}>VIEW CART</button>
-                <button className={boxItemBtn}>CHECKOUT</button>
+                <Button content={'VIEW CART'} />
+                <Button content={'CHECKOUT'} isPrimary={false} />
             </div>
         </div>
     );

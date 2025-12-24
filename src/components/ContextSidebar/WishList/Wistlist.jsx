@@ -2,8 +2,9 @@ import { CiHeart } from 'react-icons/ci';
 import styles from './styles.module.scss';
 import HeaderSideBar from '../components/HeaderSidebar/HeaderSideBar';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
+import Button from '@components/Button/Button';
 function Wishlist() {
-    const { container, boxFullBtn, boxItemBtn, boxBtn } = styles;
+    const { container, boxBtn } = styles;
     return (
         <div className={container}>
             <div>
@@ -16,8 +17,8 @@ function Wishlist() {
                 <ItemProduct />
             </div>
             <div className={boxBtn}>
-                <button className={boxFullBtn}>VIEW WISHLIST</button>
-                <button className={boxItemBtn}>ADD ALL TO CART</button>
+                <Button content={'VIEW WISHLIST'} />
+                <Button content={'ADD ALL TO CART'} isPrimary={false} />
             </div>
         </div>
     );

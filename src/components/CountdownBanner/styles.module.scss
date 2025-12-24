@@ -19,5 +19,8 @@
     margin: 40px 0 30px;
 }
 .boxBtn {
-    @include flex_box_custom(center, center, 0);
+    width: 176px;
+    margin-top: 20px;
+    margin: 0 auto;
+    text-align: center;
 }
