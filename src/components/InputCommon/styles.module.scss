@@ -17,6 +17,13 @@
             outline: none;
             border: 1px solid #e1e1e1;
             padding: 0 15px;
+            &:focus {
+                border-color: $primary_color;
+                box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+            }
+            // .error {
+            //     border-color: #e53935 !important;
+            // }
         }
         .boxIcon {
             position: absolute;
@@ -27,7 +34,7 @@
         .errMessage {
             font-size: 12px;
             margin-top: 5px;
-            color: red;
+            color: #e53935;
         }
     }
 }

@@ -3,8 +3,14 @@ import styles from './styles.module.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Button from '@components/Button/Button';
+import { useState } from 'react';
 function Login() {
     const { container, title, boxRememberMe, lostPW } = styles;
+    const [isRegister, setIsRegister] = useState(false);
+    const handleToggle = () => {
+        setIsRegister(!isRegister);
+        formik.resetForm();
+    };
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -16,24 +22,26 @@ function Login() {
                 .required('Email is required'),
             password: Yup.string()
                 .min(6, 'Password must be at least 6 characters')
-                .required('Password is required')
+                .required('Password is required'),
+            cfmpassword: Yup.string().oneOf(
+                [Yup.ref('password'), null],
+                'Password must match'
+            )
         }),
         onSubmit: (values) => {
             console.log(values);
         }
     });
+
     return (
         <div className={container}>
-            <div className={title}>SIGN IN</div>
+            <div className={title}>{isRegister ? 'SIGN UP' : 'SIGN IN'}</div>
             <form onSubmit={formik.handleSubmit}>
                 <InputCommon
                     id='email'
                     label={'Email'}
                     type={'text'}
                     isRequired
-                    // onBlur={formik.handleBlur}
-                    // onChange={formik.handleChange}
-                    // value={formik.values.email}
                     formik={formik}
                 />
                 <InputCommon
@@ -41,18 +49,39 @@ function Login() {
                     label={'Password'}
                     type={'password'}
                     isRequired
-                    // onBlur={formik.handleBlur}
-                    // onChange={formik.handleChange}
-                    // value={formik.values.password}
                     formik={formik}
                 />
-                <div className={boxRememberMe}>
-                    <input type='checkbox' />
-                    <span>Remember me</span>
-                </div>
-                <Button content={'LOGIN'} type={'submit'} />
+                {isRegister && (
+                    <InputCommon
+                        id='cfmpassword'
+                        label={'Confirm password'}
+                        type={'password'}
+                        isRequired
+                        formik={formik}
+                    />
+                )}
+                {!isRegister && (
+                    <div className={boxRememberMe}>
+                        <input type='checkbox' />
+                        <span>Remember me</span>
+                    </div>
+                )}
+                <Button
+                    content={isRegister ? 'REGISTER' : 'LOGIN'}
+                    type={'submit'}
+                />
             </form>
-            <div className={lostPW}>Lost your password?</div>
+            <Button
+                content={
+                    isRegister
+                        ? 'Already have an account?'
+                        : 'Don’t have an account?'
+                }
+                isPrimary={false}
+                style={{ marginTop: '10px' }}
+                onClick={handleToggle}
+            />
+            {!isRegister && <div className={lostPW}>Lost your password?</div>}
         </div>
     );
 }

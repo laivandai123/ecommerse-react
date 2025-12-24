@@ -8,6 +8,7 @@ function Button({ content, isPrimary = true, ...props }) {
                 [primaryBtn]: isPrimary,
                 [secondaryBtn]: !isPrimary
             })}
+            {...props}
         >
             {content}
         </button>
