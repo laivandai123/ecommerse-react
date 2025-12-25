@@ -52,6 +52,14 @@
     text-decoration: none;
     color: $primary_color;
     cursor: pointer;
+    position: relative;
+    .submenu {
+        position: absolute;
+        background-color: #fff;
+        width: 100%;
+        top: 40px;
+        padding: 10px;
+    }
 }
 .menu::after {
     content: '';
