@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import Button from '@components/Button/Button';
 import { useContext, useState } from 'react';
 import { ToastContext } from '@/contexts/Toastprovider';
-import { register } from '@/apis/authService';
+import { register, login } from '@/apis/authService';
+import Cookies from 'js-cookie';
 function Login() {
     const { container, title, boxRememberMe, lostPW } = styles;
     const [isRegister, setIsRegister] = useState(false);
@@ -34,9 +35,10 @@ function Login() {
         }),
         onSubmit: async (values) => {
             if (isLoading) return;
+            const { email: username, password } = values;
+            setIsLoading(true);
+
             if (isRegister) {
-                const { email: username, password } = values;
-                setIsLoading(true);
                 return await register({ username, password })
                     .then((res) => {
                         toast.success(res.data.message);
@@ -44,6 +46,19 @@ function Login() {
                     })
                     .catch((err) => {
                         toast.error(err.response.data.message);
+                        setIsLoading(false);
+                    });
+            }
+            if (!isRegister) {
+                return await login({ username, password })
+                    .then((res) => {
+                        setIsLoading(false);
+                        console.log(res);
+                        const { id, token, refreshToken } = res.data;
+                        Cookies.set('token', token);
+                        Cookies.set('refreshToken', refreshToken);
+                    })
+                    .catch(() => {
                         setIsLoading(false);
                     });
             }
